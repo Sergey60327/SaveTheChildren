@@ -1,0 +1,47 @@
+</!DOCTYPE html>
+<html>
+<head>
+  <title>Save the Children</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Merriweather+Sans|Roboto|Volkhov" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="project.css">
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<div id="background"></div>
+<video class="background"  preload="auto" autoplay="" poster="" loop="" muted=""><source src="assets/background.mov" type="video/mp4"></video>
+
+  <nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+    <a class="navbar-brand" href=""></a>
+      <img alt="Brand" src="assets/logo.png">
+    <ul class="links nav navbar-nav navbar-right" id="links">
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Documentation</li>
+        <li>Contact</li>
+    </ul> 
+  </nav>
+
+  <div class="container">
+      
+  </div> 
+    
+  <div class="search">
+  <form>
+  <div class="form-group">
+    <label for="locationdata">Enter a Location to Begin</label>
+    <input type="text" class="form-control" id="locationdata" placeholder="City, State, Country or Zipcode">
+  </div>
+  <button type="search" class="btn btn-default" id="search" ng-click="myFunction()">SEARCH</button>
+  </form>
+  </div>
+
+  
+<script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ="crossorigin="anonymous"></script>
+<script src="https://code.angularjs.org/1.6.3/angular.js"></script>
+<script src="./project.js" type="text/javascript"></script>
+
+</body>
+
+</html>
+
