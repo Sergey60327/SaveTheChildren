@@ -6,6 +6,10 @@ var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
 var addressP;
 var key = "AIzaSyATw30tgbosz8iKN0zi2WVL5y-jxEBPGto";
+
+var weatherURL = "api.openweathermap.org/data/2.5/weather?q="
+
+
 app.controller("myCtrl", function($scope,$http){
 	$scope.myFunction = function() {
 		addressP = angular.element("#locationdata").val().trim();
@@ -61,8 +65,22 @@ app.controller("myCtrl", function($scope,$http){
 		});
 		})
 
+var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+response.data.results[0].geometry.location.lat+"&lon="+response.data.results[0].geometry.location.lng+"&appid=2e0b1f9b2b01a0eac68955d495e769b7";
+		
+		$http({
+				method: "GET",
+				url: weatherURL
+		}).then(function (thirdChildResponse){
+			var temp = thirdChildResponse.data.main.temp;
+			var fahrenheitTemp = temp*(9/5)-(459.67);
+			console.log(fahrenheitTemp);
+		})
 
 		});
+
+		
+
+
 	}
 });
 
@@ -74,5 +92,7 @@ $("#home").on("click",function(){
 	widget.hide();
 
 })
+
+
 
 

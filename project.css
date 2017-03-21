@@ -1,13 +1,13 @@
 #navbar {
 			background-color: transparent;
 			border-bottom: none;
-			font-family: 'Merriweather Sans', sans-serif;	
+			font-family: 'Open Sans Condensed', sans-serif;	
 			color: #ffffff;
 			margin-right: 50px;
 
 }
 
-li {		font-family: 'Volkhov', serif;
+li {		font-family: 'Quicksand', sans-serif;
 			margin: 10px;
 			padding-top: 20px;
 			font-size: 24px;
@@ -26,8 +26,7 @@ li:active{
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			-webkit-filter: brightness(0.30);
-    		filter: brightness(0.30);
+			
 
 
 
@@ -45,9 +44,9 @@ li:active{
 .search {
 			position: relative;
 			margin: auto;
-			top:300px;
+			top:280px;
 			width: 600px;
-			height: 200px;
+			height: 240px;
 			border-radius: 10px;
 			padding-left: 60px;
 			padding-right: 60px;
@@ -55,8 +54,8 @@ li:active{
 			padding-bottom: 20px;
 			background-color: #ffffff;
 			font-size: 25px;
-			font-family: 'Roboto', sans-serif;
-			opacity: .9;
+			font-family: 'Questrial', sans-serif;
+			opacity: .8;
 			text-align: center;
 
 
@@ -68,12 +67,20 @@ li:active{
 				font-size: 18px;
 }
 
+#email{
+				height: 40px;
+				opacity: 1;
+				text-align: center;
+				font-size: 18px;
+				margin-top: -40px;
+}
+
 #search {
 				background-color: #000000;
 				color: #ffffff;
-				font-size: 20px;
+				font-size: 15px;
 				text-align: center;
-				font-family: 'Roboto', sans-serif;
+				font-family: 'Nixie One', cursive;
 				display: block;
 				margin: auto;
 				border: none;
