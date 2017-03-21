@@ -19,17 +19,17 @@ app.controller("myCtrl", function($scope,$http){
 			console.log("Longitude is " + response.data.results[0].geometry.location.lng);
 
 			var app = angular.module("myApp",[]);
-			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+addressP+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&key=AIzaSyBvWpEwYyFy8iHSBTxIzk3zBJ405daGIG4"
+			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+addressP+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&key=AIzaSyB0TQy5qiEIcvgm0puF1VdzKCbMXu1tgPA"
 ;
 
 			$http({
 			method: "GET",
 			url: queryURL
 		}).then(function (childResponse){
-			console.log(childResponse);
+			console.log("HELLO", childResponse.data);
 			var photoReference = childResponse.data.results[0].photos[0].photo_reference;
 
-			var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=AIzaSyBvWpEwYyFy8iHSBTxIzk3zBJ405daGIG4"
+			var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=AIzaSyB0TQy5qiEIcvgm0puF1VdzKCbMXu1tgPA"
 			$http({
 				method: "GET",
 				url: imageURL
@@ -49,12 +49,12 @@ app.controller("myCtrl", function($scope,$http){
 			var widget = $("<div id='widget'></div>");
 			widget.css({
 			    position: 'absolute',
-    			top: '35%',
-    			left: '80%'
+    			top: '53%',
+    			left: '35%',
 			});
 			$("#background").append(widget);
 			_aqiFeed({    
-  display:"<div style='%style;max-width:180px;text-align:center;'><small>%cityname AQI:</small> <div style='font-size:88px;height:100px;padding-bottom:30px;'>%aqiv</div> %impact</div>",  
+  display:"<div style='color:#ffffff;max-width:180px;text-align:center;'><small>Air Quality Index:</small> <div style='font-size:88px;height:100px;padding-bottom:30px;'>%aqiv</div> %impact</div>",  
   container:"widget",    
   city: addressP
   });  
