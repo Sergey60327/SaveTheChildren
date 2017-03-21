@@ -1,3 +1,7 @@
+
+$("#information").hide();
+$("#previous").hide();
+
 var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
 var addressP;
@@ -30,6 +34,9 @@ app.controller("myCtrl", function($scope,$http){
 				method: "GET",
 				url: imageURL
 		}).then(function (secondChildResponse){
+			$("#information").show();
+			$("#previous").show();
+			$("#city").html(addressP);
 			console.log(secondChildResponse.config.url);
 			var image = $("<img>");
 			image.attr("src",secondChildResponse.config.url);
@@ -38,6 +45,19 @@ app.controller("myCtrl", function($scope,$http){
 			$("#background").empty();
 			$("#background").append(image);
 			image.addClass("backgroundImage");
+
+			var widget = $("<div id='widget'></div>");
+			widget.css({
+			    position: 'absolute',
+    			top: '35%',
+    			left: '80%'
+			});
+			$("#background").append(widget);
+			_aqiFeed({    
+  display:"<div style='%style;max-width:180px;text-align:center;'><small>%cityname AQI:</small> <div style='font-size:88px;height:100px;padding-bottom:30px;'>%aqiv</div> %impact</div>",  
+  container:"widget",    
+  city: addressP
+  });  
 		});
 		})
 
@@ -45,3 +65,14 @@ app.controller("myCtrl", function($scope,$http){
 		});
 	}
 });
+
+$("#home").on("click",function(){
+	$("#information").hide();
+	$("#previous").hide();
+	$(".background").show();
+	$(".search").show();
+	widget.hide();
+
+})
+
+
