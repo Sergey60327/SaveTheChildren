@@ -23,9 +23,8 @@ app.controller("myCtrl", function($scope,$http){
 			console.log("Longitude is " + response.data.results[0].geometry.location.lng);
 
 			var app = angular.module("myApp",[]);
-			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+addressP+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&key=AIzaSyB0TQy5qiEIcvgm0puF1VdzKCbMXu1tgPA"
-;
-
+			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+addressP+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=AIzaSyB0TQy5qiEIcvgm0puF1VdzKCbMXu1tgPA";
+			debugger;
 			$http({
 			method: "GET",
 			url: queryURL
