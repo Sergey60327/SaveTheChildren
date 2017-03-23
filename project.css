@@ -1,0 +1,160 @@
+#navbar {
+			background-color: transparent;
+			border-bottom: none;
+			font-family: 'Open Sans Condensed', sans-serif;	
+			color: #ffffff;
+			margin-right: 50px;
+
+}
+
+
+li {		font-family: 'Quicksand', sans-serif;
+			margin: 10px;
+			padding-top: 20px;
+			font-size: 24px;
+			cursor: pointer;
+
+
+}
+
+li: active{
+	color: #b5b5b5;
+}
+
+
+.background {
+			z-index: -100;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			
+
+
+
+}
+
+.backgroundImage{
+	width:100%;
+	height: 100%;
+	z-index:-100;
+	position: absolute;
+	-webkit-filter: brightness(0.50);
+    filter: brightness(0.50);
+	}
+
+.search {
+			position: relative;
+			margin: auto;
+			top:280px;
+			width: 600px;
+			height: 250px;
+			border-radius: 10px;
+			padding-left: 60px;
+			padding-right: 60px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			background-color: #ffffff;
+			font-size: 30px;
+			font-family: 'Questrial', sans-serif;
+			opacity: .8;
+			text-align: center;
+
+
+}
+#locationdata {
+				height: 50px;
+				opacity: 1;
+				text-align: center;
+				font-size: 18px;
+}
+
+#email{
+				height: 40px;
+				opacity: 1;
+				text-align: center;
+				font-size: 18px;
+				margin-top: -40px;
+}
+
+#search {
+				background-color: #000000;
+				color: #ffffff;
+				font-size: 18px;
+				text-align: center;
+				font-family: 'Nixie One', cursive;
+				display: block;
+				margin: auto;
+				border: none;
+				border-radius: 5px;
+				padding: 10px;
+			}
+
+#discover{
+				background-color: #000000;
+				color: #ffffff;
+				margin-left: 200px;
+				font-size: 25px;
+				font-family: 'Nixie One', cursive;
+				margin: #000000;
+				border: none;
+				border-radius: 5px;
+				padding: 10px;
+}
+
+#uvIndex, #pollution, #temperature{
+	display: inline;
+	margin-left: 200px;
+}
+
+#information{
+	margin-top: 200px;
+	font-size: 40px;
+
+}
+
+#location{
+	margin-left: 200px;
+	margin-bottom: 20px;
+	color: #ffffff;
+	font-family: 'Arimo', sans-serif;
+	font-size: 35px;
+}
+
+#city{
+	background-color: #000000;
+	opacity:0.7;
+	border-radius: 10px;
+	padding: 10px;
+	color: #ffffff;
+	font-family: 'Muli', sans-serif;
+	font-size: 35px;
+}
+
+#previousText{
+	
+	color: #ffffff;
+	margin-left: 200px;
+	margin-bottom: 20px;
+	font-family: 'Quicksand', sans-serif;
+}
+
+#previous{
+	margin-top: 200px;
+}
+h2 {
+			font-family: 'Quicksand', sans-serif;
+		}
+#name{
+    font-family: 'Questrial', sans-serif;
+    font-size: 40px;
+    
+}
+
+#tempInfo{
+    font-size: 90px;
+    position: relative;
+    top: 160px;
+    left: -120px;
+    z-index: 100;
+    color: #ffffff ;
+}
