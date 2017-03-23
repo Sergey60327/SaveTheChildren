@@ -5,16 +5,17 @@ $("#previous").hide();
 
 var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
-var addressP;
+var addressP = angular.element("#locationdata").val().trim();
 var key = "AIzaSyATw30tgbosz8iKN0zi2WVL5y-jxEBPGto";
 
 
 var weatherURL = "api.openweathermap.org/data/2.5/weather?q="
 
 
-app.controller("myCtrl", function($scope,$http){
-	$scope.myFunction = function() {
-		addressP = angular.element("#locationdata").val().trim();
+app.controller("myCtrl", function($scope,$http, $compile){
+	$scope.myFunction = function(addressP) {
+		console.log("Bad");
+		addressP;
 		console.log(addressP);
 		$http({
 			method: "GET",

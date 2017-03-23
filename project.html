@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" type="text/css" href="project.css">
 </head>
-<body ng-app="myApp" ng-controller="myCtrl">
+<body id="mycontroller" ng-app="myApp" ng-controller="myCtrl">
 <div id="background"></div>
 <video class="background"  preload="auto" autoplay="" poster="" loop="" muted=""><source src="assets/background.mov" type="video/mp4"></video>
 
@@ -42,7 +42,7 @@
     <input type="text" class="form-control" id="email" placeholder="Enter your email">
   </div>
 
-  <button type="search" id="search" ng-click="myFunction()">Search</button>
+  <button type="search" id="search" ng-click="myFunction(addressP)">Search</button>
 
 
   </form>
@@ -83,20 +83,19 @@
   </div>
 
   <div  class="row">
-  <div id="previous">
-  <h2 id="previousText">Want to check out previous searches?</h2>
-    <button type="discover" id="discover" ng-click="">Discover</button>
-  </div>
+ 	 <div id="previous">
+  		<h2 id="previousText">Want to check out previous searches?</h2>
+  	</div>
   </div>
   
   </div> 
 
   
 <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ="crossorigin="anonymous"></script>
-<script src="https://code.angularjs.org/1.6.3/angular.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script src="https://code.angularjs.org/1.6.3/angular.js"></script>
 <script src="./project.js" type="text/javascript"></script>
-
+<script src="./Firebase.js" type="text/javascript"></script>
 <script  type="text/javascript"  charset="utf-8">  
     (function(w,d,t,f){  w[f]=w[f]||function(c,k,n){s=w[f],k=s['k']=(s['k']||(k?('&k='+k):''));s['c']=  
     c=(c  instanceof  Array)?c:[c];s['n']=n=n||0;L=d.createElement(t),e=d.getElementsByTagName(t)[0];  
