@@ -2,10 +2,12 @@
 $("#information").hide();
 $("#previous").hide();
 
+
 var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
 var addressP;
 var key = "AIzaSyATw30tgbosz8iKN0zi2WVL5y-jxEBPGto";
+
 
 var weatherURL = "api.openweathermap.org/data/2.5/weather?q="
 
@@ -30,10 +32,12 @@ app.controller("myCtrl", function($scope,$http){
 			method: "GET",
 			url: queryURL
 		}).then(function (childResponse){
+
 			console.log("HELLO", childResponse.data);
 			var photoReference = childResponse.data.results[0].photos[0].photo_reference;
 
 			var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=AIzaSyB0TQy5qiEIcvgm0puF1VdzKCbMXu1tgPA"
+
 			$http({
 				method: "GET",
 				url: imageURL
@@ -95,7 +99,3 @@ $("#home").on("click",function(){
     $("#locationdata").val("");
 
 })
-
-
-
-
