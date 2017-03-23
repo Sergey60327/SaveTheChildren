@@ -28,7 +28,7 @@
 
   <div class="container">
       
-  </div> 
+  
     
   <div class="search">
   <form>
@@ -48,27 +48,48 @@
   </form>
   </div>
 
-
+  
+    
+  
   <div id="information">
-  <div id="location">
-    <h2>Hello, welcome to <span id="city"></span></h2>
+  <div id="location" class="row">
+    <h2 class>Hello, welcome to <span id="city"></span></h2>
   </div>
-    <div id="uvIndex">
-      <img src="assets/sun.png">
+
+  <div class="row">
+
+    <div class="col-xs-4">
+      <img id="uvIndex" src="assets/sun.png">
     </div>
-    <div id="pollution">
-      <img src="assets/pollution.png">
+    <div class="col-xs-4">
+      <img id="pollution" src="assets/pollution.png">
     </div>
-    <div id="temperature">
-      <img src="assets/temp.png">
+    <div class="col-xs-4">
+      <img id="temperature" src="assets/temp.png">
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4">
+      <span id="uvInfo"></span>
+    </div>
+    <div class="col-xs-4">
+      <span id="widget"></span>
+    </div>
+    <div class="col-xs-4">
       <span id="tempInfo"></span>
     </div>
   </div>
 
+  <div  class="row">
   <div id="previous">
-    <h2 id="previousText">Want to check out previous searches?</h2>
+  <h2 id="previousText">Want to check out previous searches?</h2>
     <button type="discover" id="discover" ng-click="">Discover</button>
   </div>
+  </div>
+  
+  </div> 
 
   
 <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ="crossorigin="anonymous"></script>

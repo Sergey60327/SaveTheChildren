@@ -31,7 +31,7 @@ li: active{
 }
 
 .backgroundImage{
-	width:100%;
+	
 	height: 100%;
 	z-index:-100;
 	position: absolute;
@@ -89,7 +89,6 @@ li: active{
 #discover{
 				background-color: #000000;
 				color: #ffffff;
-				margin-left: 200px;
 				font-size: 25px;
 				font-family: 'Nixie One', cursive;
 				margin: #000000;
@@ -100,7 +99,7 @@ li: active{
 
 #uvIndex, #pollution, #temperature{
 	display: inline;
-	margin-left: 200px;
+	
 }
 
 #information{
@@ -110,7 +109,6 @@ li: active{
 }
 
 #location{
-	margin-left: 200px;
 	margin-bottom: 20px;
 	color: #ffffff;
 	font-family: 'Arimo', sans-serif;
@@ -130,14 +128,11 @@ li: active{
 #previousText{
 	
 	color: #ffffff;
-	margin-left: 200px;
 	margin-bottom: 20px;
 	font-family: 'Quicksand', sans-serif;
 }
 
-#previous{
-	margin-top: 200px;
-}
+
 h2 {
 			font-family: 'Quicksand', sans-serif;
 		}
@@ -149,9 +144,13 @@ h2 {
 
 #tempInfo{
     font-size: 90px;
-    position: relative;
-    top: 160px;
-    left: -120px;
+    
+    z-index: 100;
+    color: #ffffff ;
+}
+
+#uvInfo{
+    font-size: 90px;
     z-index: 100;
     color: #ffffff ;
 }
