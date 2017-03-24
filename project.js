@@ -5,28 +5,25 @@ $("#previous").hide();
 
 var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
-var addressP = angular.element("#locationdata").val().trim();
 var key = "AIzaSyATw30tgbosz8iKN0zi2WVL5y-jxEBPGto";
-
-
 var weatherURL = "api.openweathermap.org/data/2.5/weather?q="
 
 
-app.controller("myCtrl", function($scope,$http, $compile){
-	$scope.myFunction = function(addressP) {
-		console.log("Bad");
-		addressP;
-		console.log(addressP);
+app.controller("myCtrl", function($scope,$http){
+	$scope.myFunction = function(cityInput) {
+		if(angular.element(".city-buttons").length == 0){
+			var cityInput = angular.element("#locationdata").val().trim();
+		}
 		$http({
 			method: "GET",
-			url: mainURL + "address=" + addressP + "&key=" + key
+			url: mainURL + "address=" + cityInput + "&key=" + key
 		}).then(function (response){
 			//.log(response.data.results[0].geometry.location.lat);
 			console.log("Latitude is " + response.data.results[0].geometry.location.lat);
 			console.log("Longitude is " + response.data.results[0].geometry.location.lng);
 
 			var app = angular.module("myApp",[]);
-			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+addressP+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=AIzaSyAG6bdd9sFybP1JBjw934o7KQhkPm1-s9k"
+			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+cityInput+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=AIzaSyAG6bdd9sFybP1JBjw934o7KQhkPm1-s9k"
 ;
 
 			$http({
@@ -45,7 +42,7 @@ app.controller("myCtrl", function($scope,$http, $compile){
 		}).then(function (secondChildResponse){
 			$("#information").show();
 			$("#previous").show();
-			$("#city").html(addressP);
+			$("#city").html(cityInput);
 			console.log(secondChildResponse.config.url);
 			var image = $("<img>");
 			image.attr("src",secondChildResponse.config.url);
@@ -63,7 +60,7 @@ app.controller("myCtrl", function($scope,$http, $compile){
 			_aqiFeed({    
   display:"<div style='color:#ffffff;max-width:180px;text-align:center;'><div style='font-size:80px;height:100px;padding-bottom:30px;'>%aqiv</div> %impact</div>",  
   container:"widget",    
-  city: addressP
+  city: cityInput
   });  
 		});
 		})

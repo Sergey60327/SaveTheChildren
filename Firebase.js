@@ -19,8 +19,8 @@
   });
   
   $("#previous").on("click",".city-buttons", function(event){
-  	console.log("testing");
-  	angular.element("#mycontroller").scope().myFunction();
+  	console.log(event);
+  	angular.element("#mycontroller").scope().myFunction(event.target.innerHTML);
   });
   
   
@@ -79,7 +79,7 @@
   		var newBTN = $("<button>");
   		newBTN.attr("id","discover");
   		newBTN.attr("class","city-buttons");
-  		newBTN.attr("ng-click","myFunction()");
+  		newBTN.html(val);
   		$("#previous").append(newBTN);
   }
   
