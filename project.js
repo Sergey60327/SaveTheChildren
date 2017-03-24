@@ -1,16 +1,17 @@
-
 $("#information").hide();
 $("#previous").hide();
-
 
 var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
 var key = "AIzaSyATw30tgbosz8iKN0zi2WVL5y-jxEBPGto";
-var weatherURL = "api.openweathermap.org/data/2.5/weather?q="
-
+var weatherURL = "api.openweathermap.org/data/2.5/weather?q=";
 
 app.controller("myCtrl", function($scope,$http){
+	
 	$scope.myFunction = function(cityInput) {
+		var locationdataValue = angular.element("#locationdata").val().trim();
+		var emailValue = angular.element("#email").val().trim();
+		if(emailValue != "" && locationdataValue != ""){
 		if(angular.element(".city-buttons").length == 0){
 			var cityInput = angular.element("#locationdata").val().trim();
 		}
@@ -23,18 +24,17 @@ app.controller("myCtrl", function($scope,$http){
 			console.log("Longitude is " + response.data.results[0].geometry.location.lng);
 
 			var app = angular.module("myApp",[]);
-			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+cityInput+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=AIzaSyAG6bdd9sFybP1JBjw934o7KQhkPm1-s9k"
-;
+			var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+cityInput+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=AIzaSyDjicdDsJxCIOK5NL3nYlJ9TPeFWTxuRLg";
 
 			$http({
 			method: "GET",
 			url: queryURL
-		}).then(function (childResponse){
+		}).then(function successCallback(childResponse){
 
 			console.log("HELLO", childResponse.data);
 			var photoReference = childResponse.data.results[0].photos[0].photo_reference;
 
-			var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=AIzaSyAG6bdd9sFybP1JBjw934o7KQhkPm1-s9k"
+			var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=AIzaSyDjicdDsJxCIOK5NL3nYlJ9TPeFWTxuRLg";
 
 			$http({
 				method: "GET",
@@ -63,7 +63,7 @@ app.controller("myCtrl", function($scope,$http){
   city: cityInput
   });  
 		});
-		})
+	});
 
 var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+response.data.results[0].geometry.location.lat+"&lon="+response.data.results[0].geometry.location.lng+"&appid=2e0b1f9b2b01a0eac68955d495e769b7";
 		
@@ -97,6 +97,7 @@ console.log(uvURL);
 		
 
 
+	}
 	}
 });
 
