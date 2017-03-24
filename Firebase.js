@@ -19,7 +19,7 @@
 	  var locationdataValue = $("#locationdata").val().trim();
 	  var emailValue = $("#email").val().trim();
 		if(emailValue != "" && locationdataValue != ""){
-  		firebaseFunction(event);
+      firebaseFunction(event);
   	}
  	});
   
