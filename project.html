@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Save the Children</title>
+  <title>Save the Children!</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
  <link href="https://fonts.googleapis.com/css?family=Arimo|Muli|Oxygen|Quicksand" rel="stylesheet">
@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" type="text/css" href="project.css">
 </head>
-<body ng-app="myApp" ng-controller="myCtrl">
+<body id="mycontroller" ng-app="myApp" ng-controller="myCtrl">
 <div id="background"></div>
 <video class="background"  preload="auto" autoplay="" poster="" loop="" muted=""><source src="assets/background.mov" type="video/mp4"></video>
 
@@ -34,12 +34,12 @@
   <form>
   <div class="form-group">
     <label for="locationdata">Enter a Location to Begin</label>
-    <input type="text" class="form-control" id="locationdata" placeholder="City">
+    <input type="text" class="form-control" id="locationdata" placeholder="City" required>
   </div>
 
   <div class="form-group">
     <label for="email"></label>
-    <input type="text" class="form-control" id="email" placeholder="Enter your email">
+    <input type="text" class="form-control" id="email" placeholder="Enter your email" required>
   </div>
 
   <button type="search" id="search" ng-click="myFunction()">Search</button>
@@ -83,20 +83,19 @@
   </div>
 
   <div  class="row">
-  <div id="previous">
-  <h2 id="previousText">Want to check out previous searches?</h2>
-    <button type="discover" id="discover" ng-click="">Discover</button>
-  </div>
+ 	 <div id="previous">
+  		<h2 id="previousText">Want to check out previous searches?</h2>
+  	</div>
   </div>
   
   </div> 
 
   
 <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ="crossorigin="anonymous"></script>
-<script src="https://code.angularjs.org/1.6.3/angular.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script src="https://code.angularjs.org/1.6.3/angular.js"></script>
 <script src="./project.js" type="text/javascript"></script>
-
+<script src="./Firebase.js" type="text/javascript"></script>
 <script  type="text/javascript"  charset="utf-8">  
     (function(w,d,t,f){  w[f]=w[f]||function(c,k,n){s=w[f],k=s['k']=(s['k']||(k?('&k='+k):''));s['c']=  
     c=(c  instanceof  Array)?c:[c];s['n']=n=n||0;L=d.createElement(t),e=d.getElementsByTagName(t)[0];  
