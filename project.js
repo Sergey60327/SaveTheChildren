@@ -1,6 +1,8 @@
 $("#information").hide();
 $("#previous").hide();
 
+var keyArray = ["AIzaSyDRDNChhRAne1dIBof67efRxBfachEQ3J8","AIzaSyBUG0vN5STrNDcWPYmVq1jPJsFQCH-F25Q","AIzaSyBwP6XaP6e2DuEQaqXMr6pbplO4GudxJxY","AIzaSyAYhyWSVsL86DP109ZivNQ6ZXpGwyns7zI","AIzaSyD9miZQ2zRNBaMIQWIOxawEj9-dds0zlBI"];
+var keyNumber = 0;
 var app = angular.module("myApp",[]);
 var mainURL = "https://maps.googleapis.com/maps/api/geocode/json?";
 var key = "AIzaSyATw30tgbosz8iKN0zi2WVL5y-jxEBPGto";
@@ -23,7 +25,7 @@ app.controller("myCtrl", function($scope,$http){
 				//Error Handling geocoding api
 				if(response.data.status.toLowerCase() == "zero_results"){
 					var newDialog = $("<dialog>");
-					newDialog.html("No Results Were Found");
+					newDialog.html("No Results Were Found. Please Try A Different Search");
 					newDialog.attr("id","errorBox");
 					$(".search").append(newDialog);
 					newDialog.show();
@@ -35,7 +37,7 @@ app.controller("myCtrl", function($scope,$http){
 				else if(response.data.status.toLowerCase() !== "ok"){
 					var newDialog = $("<dialog>");
 					newDialog.attr("id","errorBox");
-					newDialog.html("Error");
+					newDialog.html("Error! Please Try Your Search Again");
 					$(".search").append(newDialog);
 					newDialog.show();
 					setTimeout(function(){
@@ -48,7 +50,7 @@ app.controller("myCtrl", function($scope,$http){
 					console.log("Latitude is " + response.data.results[0].geometry.location.lat);
 					console.log("Longitude is " + response.data.results[0].geometry.location.lng);
 					var app = angular.module("myApp",[]);
-					var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+cityInput+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=AIzaSyDjicdDsJxCIOK5NL3nYlJ9TPeFWTxuRLg";
+					var queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query="+cityInput+"&location="+response.data.results[0].geometry.location.lat+","+response.data.results[0].geometry.location.lng+"&radius=8406&key=" + keyArray[keyNumber];
 
 					$http({
 						method: "GET",
@@ -57,7 +59,7 @@ app.controller("myCtrl", function($scope,$http){
 					//Error Handling geocoding api
 						if(childResponse.data.status.toLowerCase() == "zero_results"){
 							var newDialog = $("<dialog>");
-							newDialog.html("No Results Were Found");
+							newDialog.html("No Results Were Found. Please Try A Different Search");
 							newDialog.attr("id","errorBox");
 							$(".search").append(newDialog);
 							newDialog.show();
@@ -67,9 +69,10 @@ app.controller("myCtrl", function($scope,$http){
 						}	
 			//Error Handling google photo reference api
 						else if(childResponse.data.status.toLowerCase() !== "ok"){
+							keyNumber++;
 							var newDialog = $("<dialog>");
 							newDialog.attr("id","errorBox");
-							newDialog.html("Error");
+							newDialog.html("Error! Please Try Your Search Again");
 							$(".search").append(newDialog);
 							newDialog.show();
 							setTimeout(function(){
@@ -81,7 +84,7 @@ app.controller("myCtrl", function($scope,$http){
 							console.log("HELLO", childResponse.data);
 							var photoReference = childResponse.data.results[0].photos[0].photo_reference;
 
-							var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=AIzaSyDjicdDsJxCIOK5NL3nYlJ9TPeFWTxuRLg";
+							var imageURL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=1000&photoreference="+photoReference+"&key=" + keyArray[keyNumber];
 
 							$http({
 								method: "GET",
@@ -90,7 +93,7 @@ app.controller("myCtrl", function($scope,$http){
 								//Error Handling geocoding api
 								if(childResponse.data.status.toLowerCase() == "zero_results"){
 									var newDialog = $("<dialog>");
-									newDialog.html("No Results Were Found");
+									newDialog.html("No Results Were Found. Please Try A Different Search");
 									newDialog.attr("id","errorBox");
 									$(".search").append(newDialog);
 									newDialog.show();
@@ -100,9 +103,10 @@ app.controller("myCtrl", function($scope,$http){
 								}
 								//Error Handling google photo api
 								else if(childResponse.data.status.toLowerCase() !== "ok"){
+									keyNumber++;
 									var newDialog = $("<dialog>");
 									newDialog.attr("id","errorBox");
-									newDialog.html("Error");
+									newDialog.html("Error! Please Try Your Search Again");
 									$(".search").append(newDialog);
 									newDialog.show();
 									setTimeout(function(){
@@ -131,7 +135,7 @@ app.controller("myCtrl", function($scope,$http){
 									_aqiFeed({    
   										display:"<div style='color:#ffffff;max-width:180px;text-align:center;'><div style='font-size:80px;height:100px;padding-bottom:30px;'>%aqiv</div> %impact</div>",  
   										container:"widget",    
-  										city: cityInput
+  										city: cityInput.replace(" ","").toLowerCase()
   									});  
 						
 									var weatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+response.data.results[0].geometry.location.lat+"&lon="+response.data.results[0].geometry.location.lng+"&appid=2e0b1f9b2b01a0eac68955d495e769b7";
@@ -179,3 +183,5 @@ $("#home").on("click",function(){
 	$(".widget").hide();
     $("#locationdata").val("");
 })
+
+

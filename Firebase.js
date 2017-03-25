@@ -18,9 +18,13 @@
     $(".city-buttons").remove();
 	  var locationdataValue = $("#locationdata").val().trim();
 	  var emailValue = $("#email").val().trim();
-		if(emailValue != "" && locationdataValue != ""){
-      firebaseFunction(event);
-  	}
+	  if(emailValue != "" && locationdataValue != ""){
+	  	setTimeout(function(){
+	  		if($("#errorBox").html() == null){
+				firebaseFunction(event);
+			}
+		 }, 1000);      	
+  	  }
  	});
   
   //Recall of Angular myFunction defining new city
